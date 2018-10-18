@@ -3,6 +3,13 @@
 Rails.application.routes.draw do
   # RESTful routes
   resources :examples, except: %i[new edit]
+  resources :films, except: %i[new edit]
+  # Alternatively,
+  # get '/films' => 'films#index'
+  # post '/films' => 'films#create'
+  # patch '/films/:id' => 'films#update'
+  # get '/films/:id' => 'films#show'
+  # delete '/films/:id' => 'films#destroy'
 
   # Custom routes
   post '/sign-up' => 'users#signup'
