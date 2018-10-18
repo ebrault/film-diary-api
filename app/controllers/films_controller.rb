@@ -18,6 +18,7 @@ class FilmsController < ProtectedController
 
   def update
     if @film.update(film_params)
+      render json: @film
     else
       render json: films.errors, status: :unprocessable_entity
     end
