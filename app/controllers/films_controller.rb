@@ -12,7 +12,7 @@ class FilmsController < ProtectedController
     if @film.save
       render json: @film
     else
-      render json: films.errors, status: :unprocessable_entity
+      render json: @film.errors, status: :unprocessable_entity
     end
   end
 
@@ -20,7 +20,7 @@ class FilmsController < ProtectedController
     if @film.update(film_params)
       render json: @film
     else
-      render json: films.errors, status: :unprocessable_entity
+      render json: @film.errors, status: :unprocessable_entity
     end
   end
 
