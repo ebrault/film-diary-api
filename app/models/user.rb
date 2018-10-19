@@ -6,4 +6,5 @@ class User < ApplicationRecord
   has_many :films
   has_many :directors
   has_many :years
+  has_many :ratings
 end

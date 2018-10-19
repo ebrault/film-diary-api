@@ -1,8 +1,8 @@
-class RatingsController < ApplicationController
+class RatingsController < ProtectedController
   before_action :set_rating, only: %i[show update destroy]
 
   def index
-    @ratings = Rating.all
+    @ratings = current_user.ratings.all
     render json: @ratings
   end
 
@@ -11,9 +11,9 @@ class RatingsController < ApplicationController
   end
 
   def create
-    @rating = Rating.new(rating_params)
+    @rating = current_user.ratings.build(rating_params)
     if @rating.save
-      render json: @rating, status: :created, location: @rating
+      render json: @rating, status: :created
     else
       render json: @rating.errors, status: :unprocessable_entity
     end
@@ -34,7 +34,7 @@ class RatingsController < ApplicationController
   private
 
   def set_rating
-    @rating = Rating.find(params[:id])
+    @rating = current_user.ratings.find(params[:id])
   end
 
   def rating_params

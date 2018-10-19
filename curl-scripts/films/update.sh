@@ -9,6 +9,6 @@ curl "http://localhost:4741/films/${ID}" \
       "title": "'"${TITLE}"'",
       "director_id": "'"${DID}"'"
       "year_id": "'"${YID}"'",
-      "rating": "'"${RAT}"'"
+      "rating_id": "'"${RID}"'"
     }
   }'
