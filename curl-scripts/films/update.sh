@@ -6,6 +6,8 @@ curl "http://localhost:4741/films/${ID}" \
   --data '{
     "film": {
       "title": "'"${TITLE}"'",
-      "director": "'"${DIR}"'"
+      "director": "'"${DIR}"'",
+      "year": "'"${YEAR}"'",
+      "rating": "'"${RAT}"'"
     }
   }'
