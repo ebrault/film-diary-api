@@ -1,10 +1,10 @@
 #frozen_string_literal: true
 
-class DirectorsController < ApplicationController
+class DirectorsController < ProtectedController
   before_action :set_director, only: %i[show update destroy]
 
   def index
-    @directors = Director.all
+    @directors = current_user.directors.all
     render json: @directors
   end
 
@@ -13,7 +13,7 @@ class DirectorsController < ApplicationController
   end
 
   def create
-    @director = Director.new(director_params)
+    @director = current_user.directors.build(director_params)
     if @director.save
       render json: @director
     else
@@ -36,7 +36,7 @@ class DirectorsController < ApplicationController
   private
 
   def set_director
-    @director = Director.find(params[:id])
+    @director = current_user.directors.find(params[:id])
   end
 
   def director_params

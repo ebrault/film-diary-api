@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_19_124130) do
+ActiveRecord::Schema.define(version: 2018_10_19_161158) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,12 +31,13 @@ ActiveRecord::Schema.define(version: 2018_10_19_124130) do
 
   create_table "films", force: :cascade do |t|
     t.string "title"
-    t.string "director"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
     t.integer "year"
     t.string "rating"
+    t.bigint "director_id"
+    t.index ["director_id"], name: "index_films_on_director_id"
     t.index ["user_id"], name: "index_films_on_user_id"
   end
 
@@ -50,6 +51,13 @@ ActiveRecord::Schema.define(version: 2018_10_19_124130) do
     t.index ["token"], name: "index_users_on_token", unique: true
   end
 
+  create_table "years", force: :cascade do |t|
+    t.integer "year"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   add_foreign_key "examples", "users"
+  add_foreign_key "films", "directors"
   add_foreign_key "films", "users"
 end
