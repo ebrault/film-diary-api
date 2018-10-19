@@ -42,7 +42,6 @@ class FilmsController < ProtectedController
                                  :director,
                                  :director_id,
                                  :year,
-                                 :year_id,
                                  :rating)
   end
 end

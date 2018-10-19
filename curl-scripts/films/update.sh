@@ -8,7 +8,7 @@ curl "http://localhost:4741/films/${ID}" \
     "film": {
       "title": "'"${TITLE}"'",
       "director_id": "'"${DID}"'"
-      "year": "'"${YEAR}"'",
+      "year_id": "'"${YID}"'",
       "rating": "'"${RAT}"'"
     }
   }'
