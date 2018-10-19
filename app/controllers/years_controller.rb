@@ -1,8 +1,8 @@
-class YearsController < ApplicationController
+class YearsController < ProtectedController
   before_action :set_year, only: %i[show update destroy]
 
   def index
-    @years = Year.all
+    @years = current_user.years.all
     render json: @years
   end
 
@@ -11,7 +11,7 @@ class YearsController < ApplicationController
   end
 
   def create
-    @year = Year.new(year_params)
+    @year = current_user.years.build(year_params)
     if @year.save
       render json: @year, status: :created
     else
@@ -34,7 +34,7 @@ class YearsController < ApplicationController
   private
 
   def set_year
-    @year = Year.find(params[:id])
+    @year = current_user.years.find(params[:id])
   end
 
   def year_params
