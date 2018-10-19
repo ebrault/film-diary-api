@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   # patch '/films/:id' => 'films#update'
   # get '/films/:id' => 'films#show'
   # delete '/films/:id' => 'films#destroy'
+  resources :directors
+  get '/directors' => 'directors#index'
 
   # Custom routes
   post '/sign-up' => 'users#signup'

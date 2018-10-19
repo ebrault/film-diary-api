@@ -1,14 +1,14 @@
 # frozen_string_literal: true
 
-class FilmsController < ProtectedController
+class FilmsController < ApplicationController
   before_action :set_film, only: %i[update show destroy]
   def index
-    @films = current_user.films.all
+    @films = Film.all
     render json: @films
   end
 
   def create
-    @film = current_user.films.build(film_params)
+    @film = Film.new(film_params)
     if @film.save
       render json: @film
     else
@@ -35,7 +35,7 @@ class FilmsController < ProtectedController
   private
 
   def set_film
-    @film = current_user.films.find(params[:id])
+    @film = Film.find(params[:id])
   end
 
   def film_params
