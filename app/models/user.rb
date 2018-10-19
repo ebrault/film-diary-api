@@ -5,4 +5,5 @@ class User < ApplicationRecord
   has_many :examples
   has_many :films
   has_many :directors
+  has_many :years
 end
