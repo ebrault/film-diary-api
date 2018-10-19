@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  resources :years
   # RESTful routes
   resources :examples, except: %i[new edit]
   resources :films, except: %i[new edit]
@@ -12,6 +11,7 @@ Rails.application.routes.draw do
   # get '/films/:id' => 'films#show'
   # delete '/films/:id' => 'films#destroy'
   resources :directors, except: %i[new edit]
+  resources :years, except: %i[new edit]
 
   # Custom routes
   post '/sign-up' => 'users#signup'
