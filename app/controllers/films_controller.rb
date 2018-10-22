@@ -38,12 +38,6 @@ class FilmsController < ProtectedController
   end
 
   def film_params
-    params.require(:film).permit(:title,
-                                 :director,
-                                 :director_id,
-                                 :year,
-                                 :year_id,
-                                 :rating,
-                                 :rating_id)
+    params.require(:film).permit(:title, :director, :rating, :watched)
   end
 end

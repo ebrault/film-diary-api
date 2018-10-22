@@ -25,10 +25,10 @@ ActiveRecord::Schema.define(version: 2018_10_22_143146) do
 
   create_table "films", force: :cascade do |t|
     t.string "title"
+    t.string "director"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
-    t.string "director"
     t.string "rating"
     t.datetime "watched"
     t.index ["user_id"], name: "index_films_on_user_id"
