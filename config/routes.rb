@@ -10,9 +10,6 @@ Rails.application.routes.draw do
   # patch '/films/:id' => 'films#update'
   # get '/films/:id' => 'films#show'
   # delete '/films/:id' => 'films#destroy'
-  resources :directors, except: %i[new edit]
-  resources :years, except: %i[new edit]
-  resources :ratings, except: %i[new edit]
 
   # Custom routes
   post '/sign-up' => 'users#signup'

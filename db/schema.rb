@@ -10,18 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_19_195355) do
+ActiveRecord::Schema.define(version: 2018_10_22_143146) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "directors", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "user_id"
-    t.index ["user_id"], name: "index_directors_on_user_id"
-  end
 
   create_table "examples", force: :cascade do |t|
     t.text "text", null: false
@@ -36,21 +28,10 @@ ActiveRecord::Schema.define(version: 2018_10_19_195355) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
-    t.bigint "director_id"
-    t.bigint "year_id"
-    t.bigint "rating_id"
-    t.index ["director_id"], name: "index_films_on_director_id"
-    t.index ["rating_id"], name: "index_films_on_rating_id"
-    t.index ["user_id"], name: "index_films_on_user_id"
-    t.index ["year_id"], name: "index_films_on_year_id"
-  end
-
-  create_table "ratings", force: :cascade do |t|
+    t.string "director"
     t.string "rating"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "user_id"
-    t.index ["user_id"], name: "index_ratings_on_user_id"
+    t.datetime "watched"
+    t.index ["user_id"], name: "index_films_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -63,20 +44,6 @@ ActiveRecord::Schema.define(version: 2018_10_19_195355) do
     t.index ["token"], name: "index_users_on_token", unique: true
   end
 
-  create_table "years", force: :cascade do |t|
-    t.integer "year"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "user_id"
-    t.index ["user_id"], name: "index_years_on_user_id"
-  end
-
-  add_foreign_key "directors", "users"
   add_foreign_key "examples", "users"
-  add_foreign_key "films", "directors"
-  add_foreign_key "films", "ratings"
   add_foreign_key "films", "users"
-  add_foreign_key "films", "years"
-  add_foreign_key "ratings", "users"
-  add_foreign_key "years", "users"
 end
