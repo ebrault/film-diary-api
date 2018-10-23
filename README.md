@@ -12,7 +12,7 @@ This is a simple back end API responsible for handling AJAX requests from the fr
 <h1>Technologies Used</h1>
 
 * Ruby On Rails
-*
+
 * PostgreSQL
 
 
@@ -53,11 +53,19 @@ This is a simple back end API responsible for handling AJAX requests from the fr
 ![Wireframe 3](https://i.imgur.com/8rPny7N.jpg)
 
 <h1>User Stories</h1>
+
 * As a user, I want to be able to create an account
+
 * As a user, I want to be able to add films to a personal database
+
 * As a user, I want to be able to delete films from a personal database
+
 * As a user, I want to be able to get all/one films from a personal database
+
 * As a user, I want to be able to rate films in a personal database
+
 * As a user, I want to be able to change film details in a personal database
+
 * As a user, I do not want other users to have access to my data
+
 * As a user, I want to be able to get films by certain characteristics (get films by personal rating, get films by director, get films by country, get films by language, get films by release date, get films by genre, get films watched in a timeframe, etc.)
