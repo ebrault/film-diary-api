@@ -18,7 +18,6 @@ class FilmsController < ProtectedController
 
   def update
     if @film.update(film_params)
-      render json: @film
     else
       render json: @film.errors, status: :unprocessable_entity
     end
@@ -39,6 +38,6 @@ class FilmsController < ProtectedController
   end
 
   def film_params
-    params.require(:film).permit(:title, :director, :id)
+    params.require(:film).permit(:title, :director, :rating, :watched)
   end
 end
